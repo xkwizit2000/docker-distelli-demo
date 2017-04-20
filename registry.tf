@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "registry" {
   }
 }
 
-/* ELB for the registry */
+/* ELB for Service */
 resource "aws_elb" "s3-registry-elb" {
   name               = "s3-registry-elb"
   availability_zones = ["${split(",", var.availability_zones)}"]

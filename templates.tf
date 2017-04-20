@@ -21,8 +21,6 @@ resource "template_file" "registry_task" {
   vars {
     s3_bucket_name        = "${aws_s3_bucket.registry.id}"
     s3_bucket_region      = "${aws_s3_bucket.registry.region}"
-    s3_bucket_access_key  = "${aws_iam_access_key.registry.id}"
-    s3_bucket_secret_key  = "${aws_iam_access_key.registry.secret}"
     registry_docker_image = "${var.registry_docker_image}"
   }
 }
