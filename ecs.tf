@@ -1,7 +1,4 @@
-/* SSH key pair */
-resource "aws_key_pair" "ecs" {
-  key_name   = "${var.key_name}"
-}
+
 
 /**
  * Launch configuration used by autoscaling group
@@ -11,7 +8,7 @@ resource "aws_launch_configuration" "ecs" {
   image_id             = "${lookup(var.amis, var.region)}"
   /* @todo - split out to a variable */
   instance_type        = "${var.instance_type}"
-  key_name             = "${aws_key_pair.ecs.key_name}"
+  key_name             = "${var.key_name}"
   iam_instance_profile = "${aws_iam_instance_profile.ecs.id}"
   security_groups      = ["${aws_security_group.ecs.id}"]
   iam_instance_profile = "${aws_iam_instance_profile.ecs.name}"
