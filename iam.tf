@@ -1,11 +1,4 @@
 /* registry user, access key and policies */
-resource "aws_iam_user" "registry" {
-  name = "${var.registry_username}"
-}
-
-resource "aws_iam_access_key" "registry" {
-  user = "${aws_iam_user.registry.name}"
-}
 
 resource "aws_iam_policy" "registry" {
   name   = "registryaccess"
@@ -14,7 +7,6 @@ resource "aws_iam_policy" "registry" {
 
 resource "aws_iam_policy_attachment" "registry-attach" {
   name       = "registry-attachment"
-  users      = ["${aws_iam_user.registry.name}"]
   policy_arn = "${aws_iam_policy.registry.arn}"
 }
 
