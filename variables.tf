@@ -3,6 +3,10 @@ variable "region" {
   default = "us-east-1"
 }
 
+variable "key_name" {
+  default = "jt-air"
+}
+
 variable "availability_zones" {
   description = "The availability zones"
   default = "us-east-1a,us-east-1b,us-east-1c,us-east-1d"
